@@ -7,6 +7,9 @@
   "bin": {
     "ppptr": "./bin/ppptr.js"
   },
+  "engines": {
+    "node": ">=12"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean; tsc",
@@ -14,7 +17,8 @@
     "prepare": "npm run build"
   },
   "keywords": [
-    "puppeteer"
+    "puppeteer",
+    "screenshot"
   ],
   "author": "Yui Matsumura <yuiseki@gmail.com> (https://twitter.com/yuiseki_)",
   "license": "WTFPL",
