@@ -1,10 +1,10 @@
 import yargs from "yargs/yargs";
 import { ppptr, ResolutionKey } from ".";
 
-const argv = yargs(process.argv)
+const argv = yargs(process.argv.slice(2))
   .option("res", {
     alias: "r",
-    description: "Browser Resolution. [SD, HD, FHD, 2K, 4K]",
+    description: "Browser Resolution.",
     choices: ["SD", "HD", "FHD", "2K", "4K"] as const,
     default: "HD" as ResolutionKey,
   })
@@ -43,7 +43,7 @@ const argv = yargs(process.argv)
 
 const main = async () => {
   // check first arg is URL
-  const url = argv._[argv._.length - 1];
+  const url = argv._[0];
   if (!url || url === "") {
     console.info("Usage:");
     console.info("\tgyapp [URL] {options}");

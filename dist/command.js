@@ -21,10 +21,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs_1 = __importDefault(require("yargs/yargs"));
 const _1 = require(".");
-const argv = (0, yargs_1.default)(process.argv)
+const argv = (0, yargs_1.default)(process.argv.slice(2))
     .option("res", {
     alias: "r",
-    description: "Browser Resolution. [SD, HD, FHD, 2K, 4K]",
+    description: "Browser Resolution.",
     choices: ["SD", "HD", "FHD", "2K", "4K"],
     default: "HD",
 })
@@ -62,7 +62,7 @@ const argv = (0, yargs_1.default)(process.argv)
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
     var e_1, _a;
     // check first arg is URL
-    const url = argv._[argv._.length - 1];
+    const url = argv._[0];
     if (!url || url === "") {
         console.info("Usage:");
         console.info("\tgyapp [URL] {options}");
